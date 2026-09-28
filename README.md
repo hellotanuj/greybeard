@@ -24,7 +24,7 @@ PYTHONPATH=backend uvicorn greybeard.main:app --reload
 
 ## Deploy on Vercel
 
-Import this repository with Framework Preset **Other**. Add `HINDSIGHT_API_KEY` and `HINDSIGHT_BASE_URL=https://api.hindsight.vectorize.io` to the project environment, then deploy. `api/index.py` exposes the FastAPI application.
+Import this repository with Application Preset **FastAPI**. Add `HINDSIGHT_API_KEY` and `HINDSIGHT_BASE_URL=https://api.hindsight.vectorize.io` to the project environment, then deploy. `api/index.py` exposes the FastAPI application.
 
 Set up the memory banks from a trusted local environment using `python scripts/seed.py`. The public deployment intentionally disables the bulk bootstrap endpoint. The optional baseline LLM settings are described in `.env.example`; without them, Hindsight uses an empty bank for the baseline.
 

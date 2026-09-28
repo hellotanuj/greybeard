@@ -6,5 +6,5 @@
       "includeFiles": "{backend,frontend,data}/**"
     }
   },
-  "rewrites": [{ "source": "/(.*)", "destination": "/api/index" }]
+  "framework": "fastapi"
 }
