@@ -70,8 +70,21 @@ function md(src) {
     .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
     .replace(/(^|[^*])\*([^*]+)\*/g, "$1<i>$2</i>")
     .replace(/(WO-\d{4}-\d{3})/g, '<button class="wo" data-wo="$1">$1</button>');
-  for (const raw of lines) {
-    const l = raw.trimEnd();
+  for (let row = 0; row < lines.length; row++) {
+    const l = lines[row].trimEnd();
+    if (l.trim().startsWith("|") && /^\s*\|?\s*:?-{3,}/.test(lines[row + 1] || "")) {
+      if (list) { html += "</ul>"; list = false; }
+      const cells = line => line.trim().replace(/^\||\|$/g, "").split("|").map(cell => cell.trim());
+      const headings = cells(l);
+      html += `<div class="table-scroll" tabindex="0" role="region" aria-label="Repair knowledge table"><table><thead><tr>${headings.map(c => `<th scope="col">${inline(c)}</th>`).join("")}</tr></thead><tbody>`;
+      row++;
+      while (row + 1 < lines.length && lines[row + 1].trim().startsWith("|")) {
+        row++;
+        html += `<tr>${cells(lines[row]).map(c => `<td>${inline(c)}</td>`).join("")}</tr>`;
+      }
+      html += "</tbody></table></div>";
+      continue;
+    }
     const h = l.match(/^(#{1,4})\s+(.*)/);
     const li = l.match(/^\s*(?:[-*]|\d+\.)\s+(.*)/);
     if (li) { if (!list) { html += "<ul>"; list = true; } html += `<li>${inline(li[1])}</li>`; continue; }

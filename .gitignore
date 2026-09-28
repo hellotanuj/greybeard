@@ -9,3 +9,5 @@ data/greybeard_runtime_state.json
 .vercel/
 .env.*
 !.env.example
+.vercel
+.env*
