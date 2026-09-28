@@ -1,0 +1,54 @@
+[
+  {
+    "id": "orbit",
+    "name": "Orbit Towers",
+    "locality": "Nanakramguda, Financial District",
+    "facility_manager": "Sudhakar Rao",
+    "notes": [
+      "Terrace plant room access needs a security escort; the terrace key is held by FM Sudhakar Rao.",
+      "Work permits must be raised before 9:00 AM or the job slips to the next day.",
+      "No hot work (brazing/welding) on Fridays: the anchor tenant runs weekly compliance audits.",
+      "Adjacent plot has had active construction since early 2025, so condenser coils load up with dust fast."
+    ]
+  },
+  {
+    "id": "sapphire",
+    "name": "Sapphire Square",
+    "locality": "Raidurg",
+    "facility_manager": "Mahesh Chary",
+    "notes": [
+      "DG yard is in the lower basement (B2) and takes on water during heavy monsoon rain; carry gumboots Jul-Sep.",
+      "DG load tests only allowed 6:00-8:00 AM on weekdays (tenant UPS sync issues otherwise)."
+    ]
+  },
+  {
+    "id": "meridian",
+    "name": "Meridian IT SEZ",
+    "locality": "Kondapur",
+    "facility_manager": "Anitha Joseph",
+    "notes": [
+      "SEZ gate pass needs the laptop serial number and must be registered a day in advance; walk-in gate pass takes ~40 minutes.",
+      "Tower B food court is on level 3; catering carts drag debris into lift sills on floors 2-4."
+    ]
+  },
+  {
+    "id": "lakeside",
+    "name": "Lakeside One",
+    "locality": "Gachibowli",
+    "facility_manager": "Farah Siddiqui",
+    "notes": [
+      "FM Farah Siddiqui expects WhatsApp photo updates every 30 minutes during any outage.",
+      "A written root-cause note is expected within 24 hours of every chiller trip."
+    ]
+  },
+  {
+    "id": "helix",
+    "name": "Helix Park",
+    "locality": "Madhapur",
+    "facility_manager": "Pradeep Menon",
+    "notes": [
+      "UPS room on level 1 has a single split AC with no redundancy.",
+      "New chiller CH-04 commissioned August 2026 to support tenant expansion."
+    ]
+  }
+]

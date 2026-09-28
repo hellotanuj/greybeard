@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/greybeard_runtime_state.json
+.DS_Store
+
+.vercel/
+.env.*
+!.env.example

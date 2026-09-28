@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Greybeard — Every repair makes the next one smarter</title>
+  <meta name="description" content="Meet the AI that remembers every repair. Explore how 18 months of field experience helps a new technician solve today’s toughest jobs." />
+  <link rel="preload" href="/static/fonts/hubot-sans-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/static/fonts/mona-sans-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23a371f7'/%3E%3Cpath d='M9 12.5a7 7 0 0 1 14 0v2.5c0 5-3.1 9-7 9s-7-4-7-9z' fill='%230d1117'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip-link" href="#work">Skip to workspace</a>
+  <canvas id="neural" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" id="home">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a371f7"/><stop offset=".55" stop-color="#f778ba"/><stop offset="1" stop-color="#ffa657"/></linearGradient></defs>
+        <rect width="32" height="32" rx="9" fill="url(#lg)"/>
+        <path d="M9 12.5a7 7 0 0 1 14 0v2.5c0 5-3.1 9-7 9s-7-4-7-9z" fill="#0d1117"/>
+        <path d="M12.2 15.2h7.6M13.2 18.6h5.6" stroke="#d2a8ff" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div class="brand-name">Greybeard</div>
+        <div class="brand-sub">EXPERIENCE, REMEMBERED.</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <span class="nav-glider" aria-hidden="true"></span>
+      <button class="nav-btn active" data-view="dispatch">Today’s jobs</button>
+      <button class="nav-btn" data-view="knowledge">What we’ve learned</button>
+      <button class="nav-btn" data-view="ask">Ask Greybeard</button>
+    </nav>
+
+    <div class="core" id="core" title="Live Hindsight memory bank">
+      <div class="core-orb"><span></span><span></span><span></span><i></i></div>
+      <div class="core-stats">
+        <div><b data-count id="st-docs">0</b><small>jobs remembered</small></div>
+        <div><b data-count id="st-facts">0</b><small>facts</small></div>
+        <div class="amber"><b data-count id="st-obs">0</b><small>patterns learned</small></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================== DISPATCH -->
+  <main id="view-dispatch" class="view active">
+    <aside class="board">
+      <div class="board-head">
+        <div>
+          <div class="eyebrow">THE DEMO · 5 OPEN JOBS</div>
+          <h2 id="board-date">Choose a job</h2>
+        </div>
+        <div class="board-tech"><span class="avatar">AV</span><div><b>Arjun Varma</b><small>Your field technician</small></div></div>
+      </div>
+      <div id="tickets" class="tickets"></div>
+      <button class="link" id="reset-demo">↺ Reset demo board</button>
+    </aside>
+
+    <section class="work" id="work">
+      <div class="hero">
+        <div class="intro-kicker"><span class="live-dot"></span> FIELD INTELLIGENCE, WITH A MEMORY <span class="demo-tag">INTERACTIVE DEMO</span></div>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <h1 class="display">Good technicians<br/>fix things.<br/><em>Great ones<br/>remember.</em></h1>
+            <p class="lede">Meet Greybeard. An AI teammate that turns yesterday’s repairs into tomorrow’s know-how. So a technician on day one can learn from years in the field.</p>
+            <button class="btn primary big" id="start">See memory in action <span aria-hidden="true">↗</span></button>
+            <p class="start-note">Start with an overheating chiller. See what past repairs reveal.</p>
+          </div>
+          <div class="memory-scene" aria-label="Past repairs connect to a better next step">
+            <div class="orbit-ring ring-one"></div><div class="orbit-ring ring-two"></div>
+            <div class="memory-center"><span class="memory-monogram">g.</span><span>GREYBEARD</span><small>Experience connects the dots.</small></div>
+            <div class="memory-fragment fragment-one"><i>01 / A FAILED FIX</i><b>Cleaning the coils<br/>didn’t solve it.</b><span>April 2025 · repair history</span></div>
+            <div class="memory-fragment fragment-two"><i>02 / SOMETHING CHANGED</i><b>A new drive.<br/>A different cause.</b><span>August 2026 · equipment update</span></div>
+            <div class="memory-fragment fragment-three"><i>03 / A BETTER NEXT STEP</i><b>Check the drive<br/>settings first.</b><span>Today · grounded in experience</span></div>
+            <span class="scene-caption">ILLUSTRATION FROM THE SAMPLE JOB HISTORY</span>
+          </div>
+        </div>
+        <div id="bootstrap" aria-live="polite"></div>
+        <div class="journey"><div><span>01</span><b>Pick a repair</b><p>Five real-world scenarios. One new technician.</p></div><div><span>02</span><b>Compare the advice</b><p>See the difference that past experience makes.</p></div><div><span>03</span><b>Teach the next repair</b><p>Record the outcome. Keep the lesson.</p></div></div>
+        <div class="hero-stats"><div class="hs"><b data-count data-to="201">201</b><span>sample work orders</span></div><div class="hs"><b data-count data-to="18">18</b><span>months of repair history</span></div><div class="hs"><b data-count data-to="23">23</b><span>machines across 5 sites</span></div><div class="powered">Memory powered by <b>Hindsight ↗</b><span>Fictional fleet. Real memory architecture.</span></div></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================== KNOWLEDGE -->
+  <main id="view-knowledge" class="view">
+    <section class="wide">
+      <div class="page-head">
+        <div class="eyebrow amber">KNOWLEDGE THAT STAYS WITH THE TEAM</div>
+        <h1 class="display sm">The manual <em>nobody</em> wrote.</h1>
+        <p class="lede">Recurring failures, lessons from unsuccessful fixes, and site-specific tips — gathered from the team’s repair history.</p>
+      </div>
+      <div id="kb" class="kb-grid"></div>
+      <div class="page-head sub"><h2>Latest learned patterns</h2><span class="muted small">Patterns drawn from past repairs, with supporting evidence</span></div>
+      <div id="observations" class="obs-list"></div>
+    </section>
+  </main>
+
+  <!-- =========================================================== ASK -->
+  <main id="view-ask" class="view">
+    <section class="narrow">
+      <div class="page-head">
+        <div class="eyebrow amber">YOUR TEAM’S EXPERIENCE, ONE QUESTION AWAY</div>
+        <h1 class="display sm">Ask the fleet <em>anything</em>.</h1>
+        <p class="lede">Ask in plain language. Greybeard searches the repair history and shows the memories behind its answer.</p>
+      </div>
+      <div class="chips" id="ask-suggest">
+        <button class="chip">Which fixes have wasted the most money, and what should we have done instead?</button>
+        <button class="chip">I'm new. What should I know before going to Meridian IT SEZ?</button>
+        <button class="chip">Which assets are likely to fail before next monsoon, and why?</button>
+        <button class="chip">Ravi retires in December. What knowledge of his is most at risk?</button>
+      </div>
+      <div id="chat" class="chat"></div>
+      <form id="ask-form" class="ask-form">
+        <input aria-label="Ask a question about the fleet" id="ask-input" autocomplete="off" placeholder="Why do the Orbit chillers trip on A-140 every summer?" />
+        <button class="btn primary" type="submit">Ask <span aria-hidden="true">↵</span></button>
+      </form>
+    </section>
+  </main>
+
+  <div id="tip" class="tip" role="tooltip"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

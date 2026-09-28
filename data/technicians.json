@@ -1,0 +1,33 @@
+[
+  {
+    "id": "ravi",
+    "name": "Ravi Kumar Goud",
+    "years": 22,
+    "role": "Senior Chiller & DG Specialist",
+    "note": "Retiring in December 2026."
+  },
+  {
+    "id": "srinivas",
+    "name": "Srinivas Reddy",
+    "years": 11,
+    "role": "HVAC Technician"
+  },
+  {
+    "id": "imran",
+    "name": "Imran Shaikh",
+    "years": 7,
+    "role": "Lift & Electrical Technician"
+  },
+  {
+    "id": "lakshmi",
+    "name": "Lakshmi Prasanna",
+    "years": 5,
+    "role": "Electrical / UPS Technician"
+  },
+  {
+    "id": "arjun",
+    "name": "Arjun Varma",
+    "years": 0.7,
+    "role": "Junior Field Technician"
+  }
+]

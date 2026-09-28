@@ -1,0 +1,209 @@
+[
+  {
+    "id": "ORB-CH-01",
+    "site": "orbit",
+    "type": "chiller",
+    "model": "Kryo ACX-500",
+    "serial": "KX-2011-0412",
+    "installed": "2020-11",
+    "desc": "500 TR air-cooled screw chiller, R-134a, 2 circuits, 4 condenser fan banks on VFDs"
+  },
+  {
+    "id": "ORB-CH-02",
+    "site": "orbit",
+    "type": "chiller",
+    "model": "Kryo ACX-500",
+    "serial": "KX-2011-0413",
+    "installed": "2020-11",
+    "desc": "500 TR air-cooled screw chiller, R-134a, 2 circuits, 4 condenser fan banks on VFDs"
+  },
+  {
+    "id": "ORB-CH-03",
+    "site": "orbit",
+    "type": "chiller",
+    "model": "Kryo ACX-500",
+    "serial": "KX-2203-0877",
+    "installed": "2022-03",
+    "desc": "500 TR air-cooled screw chiller, standby unit"
+  },
+  {
+    "id": "LAK-CH-01",
+    "site": "lakeside",
+    "type": "chiller",
+    "model": "Kryo ACX-500",
+    "serial": "KX-1908-0233",
+    "installed": "2019-08",
+    "desc": "500 TR air-cooled screw chiller, R-134a"
+  },
+  {
+    "id": "LAK-CH-02",
+    "site": "lakeside",
+    "type": "chiller",
+    "model": "Kryo ACX-500",
+    "serial": "KX-1908-0234",
+    "installed": "2019-08",
+    "desc": "500 TR air-cooled screw chiller, R-134a"
+  },
+  {
+    "id": "HLX-CH-01",
+    "site": "helix",
+    "type": "chiller",
+    "model": "Kryo ACX-350",
+    "serial": "KX-1905-0101",
+    "installed": "2019-05",
+    "desc": "350 TR air-cooled screw chiller"
+  },
+  {
+    "id": "HLX-CH-02",
+    "site": "helix",
+    "type": "chiller",
+    "model": "Kryo ACX-350",
+    "serial": "KX-1905-0102",
+    "installed": "2019-05",
+    "desc": "350 TR air-cooled screw chiller"
+  },
+  {
+    "id": "HLX-CH-04",
+    "site": "helix",
+    "type": "chiller",
+    "model": "Kryo ACX-500",
+    "serial": "KX-2607-1190",
+    "installed": "2026-08",
+    "desc": "500 TR air-cooled screw chiller, commissioned Aug 2026, condenser fans on factory-fitted Kryo SD-40 sealed drives, no service history yet"
+  },
+  {
+    "id": "SAP-DG-01",
+    "site": "sapphire",
+    "type": "dg_set",
+    "model": "Voltara VG-750",
+    "serial": "VG750-17-221",
+    "installed": "2017-06",
+    "desc": "750 kVA diesel generator, 24V electric start, basement B2 yard"
+  },
+  {
+    "id": "SAP-DG-02",
+    "site": "sapphire",
+    "type": "dg_set",
+    "model": "Voltara VG-750",
+    "serial": "VG750-17-222",
+    "installed": "2017-06",
+    "desc": "750 kVA diesel generator, 24V electric start, basement B2 yard"
+  },
+  {
+    "id": "ORB-DG-01",
+    "site": "orbit",
+    "type": "dg_set",
+    "model": "Voltara VG-1010",
+    "serial": "VG1010-20-045",
+    "installed": "2020-10",
+    "desc": "1010 kVA diesel generator, ground-floor acoustic enclosure"
+  },
+  {
+    "id": "MER-DG-01",
+    "site": "meridian",
+    "type": "dg_set",
+    "model": "Voltara VG-750",
+    "serial": "VG750-18-310",
+    "installed": "2018-02",
+    "desc": "750 kVA diesel generator, open yard"
+  },
+  {
+    "id": "MER-LFT-B3",
+    "site": "meridian",
+    "type": "lift",
+    "model": "Liftra MRL-13",
+    "serial": "LM13-18-7781",
+    "installed": "2018-01",
+    "desc": "13-passenger machine-room-less lift, Tower B car 3, serves B1-G+12"
+  },
+  {
+    "id": "MER-LFT-B2",
+    "site": "meridian",
+    "type": "lift",
+    "model": "Liftra MRL-13",
+    "serial": "LM13-18-7780",
+    "installed": "2018-01",
+    "desc": "13-passenger MRL lift, Tower B car 2"
+  },
+  {
+    "id": "LAK-LFT-01",
+    "site": "lakeside",
+    "type": "lift",
+    "model": "Liftra MRL-16",
+    "serial": "LM16-19-0912",
+    "installed": "2019-08",
+    "desc": "16-passenger MRL lift"
+  },
+  {
+    "id": "HLX-UPS-01",
+    "site": "helix",
+    "type": "ups",
+    "model": "Powerline PX-200",
+    "serial": "PX200-21-5521",
+    "installed": "2021-04",
+    "desc": "200 kVA online UPS, 2 x 40-block VRLA battery strings"
+  },
+  {
+    "id": "SAP-UPS-01",
+    "site": "sapphire",
+    "type": "ups",
+    "model": "Powerline PX-160",
+    "serial": "PX160-20-3319",
+    "installed": "2020-09",
+    "desc": "160 kVA online UPS"
+  },
+  {
+    "id": "ORB-AHU-07",
+    "site": "orbit",
+    "type": "ahu",
+    "model": "Airnova AH-25",
+    "serial": "AN25-20-1107",
+    "installed": "2020-11",
+    "desc": "25,000 CFM AHU, floor 7"
+  },
+  {
+    "id": "LAK-AHU-03",
+    "site": "lakeside",
+    "type": "ahu",
+    "model": "Airnova AH-18",
+    "serial": "AN18-19-0303",
+    "installed": "2019-08",
+    "desc": "18,000 CFM AHU, floor 3"
+  },
+  {
+    "id": "MER-AHU-B5",
+    "site": "meridian",
+    "type": "ahu",
+    "model": "Airnova AH-25",
+    "serial": "AN25-18-0505",
+    "installed": "2018-01",
+    "desc": "25,000 CFM AHU, Tower B floor 5"
+  },
+  {
+    "id": "HLX-AHU-02",
+    "site": "helix",
+    "type": "ahu",
+    "model": "Airnova AH-18",
+    "serial": "AN18-19-0202",
+    "installed": "2019-05",
+    "desc": "18,000 CFM AHU, floor 2"
+  },
+  {
+    "id": "ORB-PMP-02",
+    "site": "orbit",
+    "type": "pump",
+    "model": "Hydrax SP-75",
+    "serial": "HX75-20-0022",
+    "installed": "2020-11",
+    "desc": "Secondary chilled water pump 2, 75 kW on VFD"
+  },
+  {
+    "id": "LAK-PMP-01",
+    "site": "lakeside",
+    "type": "pump",
+    "model": "Hydrax SP-55",
+    "serial": "HX55-19-0011",
+    "installed": "2019-08",
+    "desc": "Primary chilled water pump 1"
+  }
+]
