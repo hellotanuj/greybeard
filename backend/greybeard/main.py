@@ -209,7 +209,7 @@ async def stats() -> dict:
 async def bootstrap_status() -> dict:
     s = await memory.stats(memory.fleet)
     return {"configured": bool(settings.hindsight_api_key), "documents": s.get("total_documents", 0) or 0,
-            "pending": (s.get("pending_operations") or 0) + (s.get("pending_consolidation") or 0),
+            "pending": (s.get("pending_operations") or 0) + (s.get("pending_consolidation") or 0) + ((s.get("operations_by_status") or {}).get("processing") or 0),
             "observations": s.get("total_observations", 0) or 0, "reachable": bool(s), "setup_allowed": not bool(os.getenv("VERCEL"))}
 
 

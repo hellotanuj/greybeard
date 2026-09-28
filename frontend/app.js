@@ -399,7 +399,11 @@ function renderBriefingTab(t) {
     const c = state.cache[key(state.horizon)];
     if (c) paintMemory(c, false); else runMemory(t);
   }));
-  $("#run").addEventListener("click", () => { runBaseline(t); runMemory(t); });
+  $("#run").addEventListener("click", async (e) => {
+    const button = e.currentTarget; button.disabled = true; button.textContent = "Checking repair history…";
+    try { await Promise.allSettled([runBaseline(t), runMemory(t)]); }
+    finally { button.disabled = false; button.textContent = "Compare repair advice ↗"; }
+  });
   if (state.cache[key("base")]) paintBaseline(state.cache[key("base")], false);
   if (state.cache[key(state.horizon)]) paintMemory(state.cache[key(state.horizon)], false);
 
@@ -432,7 +436,7 @@ function renderBriefingTab(t) {
       const r = await api(`/api/tickets/${t.wo_id}/briefing?bank=${h}`, { method: "POST" });
       state.cache[key(h)] = r;
       if (state.horizon === h && state.selected === t.wo_id && state.tab === "briefing") paintMemory(r, true);
-    } catch (e) { $("#mem-body").innerHTML = `<div class="error">${esc(e.message)}</div>`; }
+    } catch (e) { if (state.horizon !== h || state.selected !== t.wo_id || state.tab !== "briefing") return; $("#mem-body").innerHTML = `<div class="error">${esc(e.message)}</div>`; }
     finally { clearInterval(ph); col?.classList.remove("thinking"); scanning(false); }
   }
 
@@ -684,13 +688,14 @@ async function checkBootstrap() {
 }
 
 async function pollBootstrap() {
-  const box = $("#bootstrap"), total = 201;
+  const box = $("#bootstrap"), total = 211;
   const paint = (st) => {
     const pct = Math.min(100, Math.round((st.documents / total) * 100));
-    box.innerHTML = `<div class="boot"><div style="flex:1"><b>Hindsight is learning the fleet…</b><div class="muted">${st.documents} of ${total} jobs extracted · ${st.observations} patterns consolidated · ${st.pending} operations pending</div><div class="boot-bar"><i style="width:${pct}%"></i></div></div></div>`;
+    box.innerHTML = `<div class="boot"><div style="flex:1"><b>Hindsight is learning the fleet…</b><div class="muted">${st.documents} of ${total} records saved · ${st.observations} patterns consolidated · ${st.pending} operations pending</div><div class="boot-bar"><i style="width:${pct}%"></i></div></div></div>`;
   };
   for (;;) {
     let st; try { st = await api("/api/bootstrap/status"); } catch { await sleep(5000); continue; }
+    if (!box?.isConnected) return;
     paint(st); refreshStats();
     if (st.pending === 0 && st.documents > 0) { box.innerHTML = ""; toast("Memory ready. Pick a job."); return; }
     await sleep(6000);
