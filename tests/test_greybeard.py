@@ -166,3 +166,20 @@ def test_public_bootstrap_disabled(client, monkeypatch):
 def test_service_errors_do_not_expose_credentials():
     error = main._hindsight_error(RuntimeError("secret-key-sentinel"))
     assert "secret-key-sentinel" not in error.detail
+
+
+def test_briefing_retrieves_exact_asset_from_selected_horizon(client, fake):
+    client.post('/api/tickets/WO-2609-114/briefing?bank=2025-06')
+    recall = next(c[1] for c in fake.calls if c[0] == 'recall')
+    reflect = next(c[1] for c in fake.calls if c[0] == 'reflect')
+    assert recall['bank_id'] == 'greybeard-fleet-2025-06'
+    assert recall['tags'] == ['asset:ORB-CH-02']
+    assert 'Exact-asset evidence' in reflect['context']
+
+
+def test_empty_bank_does_not_present_fabricated_repair_history(client, fake):
+    r = client.post('/api/tickets/WO-2609-114/briefing?bank=day1').json()
+    assert r['briefing']['avoid'] == []
+    assert r['briefing']['superseded'] == []
+    assert r['briefing']['confidence'] == 'low'
+    assert not [c for c in fake.calls if c[0] == 'recall']
